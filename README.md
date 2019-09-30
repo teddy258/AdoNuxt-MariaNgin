@@ -12,8 +12,9 @@ https://cafe.naver.com/soyeoncode
  systemctl enable docker.service
  systemctl start docker.service
 
- git clone https://github.com/teddy258/MariaNginx.git docker
- cd docker
+ cd ~ 
+ git clone https://github.com/teddy258/AdoNuxt-MariaNgin.git website
+ cd website
 ```
 # Config files
 ```
