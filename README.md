@@ -15,6 +15,7 @@ https://cafe.naver.com/soyeoncode
  cd ~ 
  git clone https://github.com/teddy258/AdoNuxt-MariaNgin.git website
  cd website
+ sudo chmod 755 install.sh && ./install.sh
 ```
 # Config files
 ```

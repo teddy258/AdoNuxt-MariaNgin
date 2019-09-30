@@ -4,7 +4,7 @@ ENV APP_ROOT /nuxt
 
 WORKDIR ${APP_ROOT}
 
-RUN npm install --silent && npm i -g pm2 node-gyp --silent 
+RUN npm i -g pm2 --silent 
 
 # Production Mode -> Delete sharp
 # RUN npm run build

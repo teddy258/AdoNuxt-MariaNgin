@@ -4,7 +4,7 @@ ENV APP_ROOT /adonis
 
 WORKDIR ${APP_ROOT}
 
-RUN npm install --silent && npm i -g pm2 --silent
+RUN npm i -g pm2 --silent 
 
 ENV HOST 0.0.0.0
 EXPOSE 3333
