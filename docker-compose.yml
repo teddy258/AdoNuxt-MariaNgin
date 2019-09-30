@@ -1,0 +1,53 @@
+version: '3.0'
+services:
+  nuxt:
+    build: 
+      context: ./nuxt/
+    volumes:  
+      - ./nuxt:/nuxt/:z
+    container_name: nuxt-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    networks:
+      default:
+        aliases:
+          - nuxt.lulu 
+  adonis:
+    build:
+      context: ./adonis/
+    volumes:  
+      - ./adonis:/adonis/:z
+    container_name: adonis-server
+    restart: unless-stopped
+    ports:
+      - "3333:3333"
+    networks:
+      default:
+        aliases:
+          - adonis.lulu  
+  mariadb:
+    container_name: mariadb_1
+    image: mariadb:latest
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234 #DB ROOT PASSWORD
+      - MYSQL_DATABASE=adonis #DB NAME
+      - MYSQL_ALLOW_EMPTY_PASSWORD=no #USING PASSWORD
+    volumes:
+      - ./data:/var/lib/mysql:z #LINK DATA FILE TO HOST OS
+      - ./mariadb:/etc/my.cnf.d:z #LINK CONF FILE TO HOST OS
+    ports:
+      - '3306:3306'
+
+  nginx:
+    image: nginx:1.13
+    container_name: nginx_1
+    restart: unless-stopped
+    ports:
+      - '443:443'
+      - '80:80'
+    volumes:
+      - ./nginx:/etc/nginx/conf.d:z
+    depends_on:
+      - mariadb
