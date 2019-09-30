@@ -1,0 +1,5 @@
+apps:
+  - script: "npm"
+    args : 'run dev'
+    name : 'nuxt'
+    cwd: "./"
