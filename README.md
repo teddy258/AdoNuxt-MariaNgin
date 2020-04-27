@@ -3,7 +3,6 @@ Docker-compose file for Mariadb + Nginx + AdonisJs + Nuxt.js \
 MariaDB : lastest \
 Nginx : 1.13 \
 Create By lulu \
-https://cafe.naver.com/soyeoncode 
 # Setup
 ```
 ### Node 10.0 ++ and NPM required ###
